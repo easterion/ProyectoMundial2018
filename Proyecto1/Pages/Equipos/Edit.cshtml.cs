@@ -14,6 +14,7 @@ namespace Proyecto1.Pages.Equipos
     public class EditModel : PageModel
     {
         private readonly Proyecto1.Data.Certamencontext _context;
+        ConexionBD con = new ConexionBD();  // establece la conexion con la base de datos
 
         public EditModel(Proyecto1.Data.Certamencontext context)
         {
@@ -22,9 +23,19 @@ namespace Proyecto1.Pages.Equipos
 
         [BindProperty]
         public Equipo Equipo { get; set; }
+        [BindProperty]
+        public Equipo Equp { get; set; }
+        [BindProperty]
+        public string Eqnom { get; set; }
+        [BindProperty]
+        public string Eqband { get; set; }
+        [BindProperty]
+        public static int ide { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            ide = id.Value;
+            Equp = con.mostrareqp(ide);
             if (id == null)
             {
                 return NotFound();
@@ -32,39 +43,17 @@ namespace Proyecto1.Pages.Equipos
 
             Equipo = await _context.Equiposins.SingleOrDefaultAsync(m => m.EquipoID == id);
 
-            if (Equipo == null)
-            {
-                return NotFound();
-            }
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
 
+            con.ModEquipo(ide,Eqnom,Eqband);
             _context.Attach(Equipo).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EquipoExists(Equipo.EquipoID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Equipos/Index");
         }
 
         private bool EquipoExists(int id)

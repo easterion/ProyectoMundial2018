@@ -316,6 +316,13 @@ namespace Proyecto1.Data
             }
             return juga;
         }
+        public void ModEquipo(int ide, string nomide,string imaide)
+        {
+
+            cmd = new SqlCommand("update Equipo set NomEquipo='" + nomide + "',ImagenBandera='" + imaide + "' where EquipoID =" + ide + "", cn);
+            cmd.ExecuteNonQuery();
+            //cn.Close();
+        }
 
         public void ModJugador(int ide ,string nomide,string histide,int poside,string imaide)
         {     

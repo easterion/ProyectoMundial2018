@@ -5,24 +5,33 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar</h2>
 
 <h4>Equipo</h4>
 <hr />
 <div class="row">
+    <div class=" col-lg-4">
+        <h3>Datos actuales del equipo</h3>
+        <p>Nombre actual :@Model.Equp.NomEquipo</p>
+        <p></p>
+        <img class="img-thumbnail" alt="bandera" width="120" height="80" src="~/images/Equipos/@Model.Equp.ImagenBandera">        
+        <p>@Model.Equp.ImagenBandera</p>
+    </div>
+
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Equipo.EquipoID" />
             <div class="form-group">
                 <label asp-for="Equipo.NomEquipo" class="control-label"></label>
-                <input asp-for="Equipo.NomEquipo" class="form-control" />
-                <span asp-validation-for="Equipo.NomEquipo" class="text-danger"></span>
+                <input asp-for="Eqnom" class="form-control" />
+                <span asp-validation-for="Eqnom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Equipo.ImagenBandera" class="control-label"></label>
-                <input asp-for="Equipo.ImagenBandera" class="form-control" />
-                <span asp-validation-for="Equipo.ImagenBandera" class="text-danger"></span>
+                <label asp-for="Equipo.ImagenBandera" class="control-label"></label>                
+                <input asp-for="Eqband" type="file"
+                       accept=".jpg, .jpeg, .png, .svg">
+                <span asp-validation-for="Eqband" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -32,7 +41,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="/Equipos/Index">Volver a equipos</a>
 </div>
 
 @section Scripts {
