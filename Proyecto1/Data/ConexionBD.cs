@@ -317,6 +317,15 @@ namespace Proyecto1.Data
             return juga;
         }
 
+        public void ModJugador(int ide ,string nomide,string histide,int poside,string imaide)
+        {     
+            //cn.Open();
+            cmd = new SqlCommand("update Jugador set Nombre='"+ nomide + "',Historia='"+ histide + "',posicion="+poside+",ImagenJug='"+ imaide + "' where JugadorID ="+ide+"", cn);          
+            //cmd.Parameters.AddWithValue();
+            cmd.ExecuteNonQuery();
+            //cn.Close();
+        }
+
         public void CargarJug(string equip) // seleccionar un grupo segun equipo y guardar en una tabla
         {
             try
