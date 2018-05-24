@@ -14,6 +14,10 @@ namespace Proyecto1.Pages.Jugadores
     {
         private readonly Proyecto1.Data.Certamencontext _context;
 
+        ConexionBD con = new ConexionBD();  // establece la conexion con la base de datos
+        public Jugador juga { get; set; }
+        public static int ide;
+
         public DetailsModel(Proyecto1.Data.Certamencontext context)
         {
             _context = context;
@@ -23,6 +27,7 @@ namespace Proyecto1.Pages.Jugadores
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            ide = id.Value;
             if (id == null)
             {
                 return NotFound();
@@ -30,10 +35,12 @@ namespace Proyecto1.Pages.Jugadores
 
             Jugador = await _context.Juginscr.SingleOrDefaultAsync(m => m.JugadorID == id);
 
-            if (Jugador == null)
+            juga = con.mostrarjugador(ide);
+
+            /*if (Jugador == null)
             {
                 return NotFound();
-            }
+            }*/
             return Page();
         }
     }
