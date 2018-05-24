@@ -66,8 +66,15 @@ namespace Proyecto1.Data
             }            
         }
 
-        public string insertarJugador(int id, string nombre, string histo,int posi,string fotjug,string pajug)//****************************************************************************************************************************************
+        //public string insertarJugador(int id, string nombre, string histo,int posi,string fotjug,string pajug)//****************************************************************************************************************************************
+        public string insertarJugador(Jugador jugu)//************************
         {
+            int id = jugu.JugadorID;
+            string nombre = jugu.Nombre;
+            string histo=jugu.Historia;
+            int posi = jugu.Posicion;
+            string fotjug = jugu.ImagenJug;
+            string pajug = jugu.PaisJugador;
             string salida = "se inserto en la BD";
             try
             {
@@ -133,6 +140,26 @@ namespace Proyecto1.Data
                 Console.WriteLine("no se pudo ejecutar consulta: " + ex.ToString());
             }
             return contador;
+        }
+
+        public int JugadorRegistradoID(int IDju)
+        {
+            int jugid=0;
+            try
+            {
+                cmd = new SqlCommand("Select * from Jugador where JugadorID = " + IDju + "", cn);// ver cuantas veces se registro el mismo jugador
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    jugid = Int32.Parse(dr["JugadorID"].ToString());                    
+                }
+                dr.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("no se pudo ejecutar consulta: " + ex.ToString());
+            }
+            return jugid;
         }
 
         public int NumRegistrosEquipo()// ver cuantos registros hay en la tabla Equipo

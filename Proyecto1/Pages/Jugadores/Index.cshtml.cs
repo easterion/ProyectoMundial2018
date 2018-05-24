@@ -15,6 +15,8 @@ namespace Proyecto1.Pages.Jugadores
         private readonly Proyecto1.Data.Certamencontext _context;
         ConexionBD con = new ConexionBD();  // establece la conexion con la base de datos
         public List<Jugador> juga = new List<Jugador>();
+        [BindProperty]
+        public int paiselegido { get; set; }
 
         public IndexModel(Proyecto1.Data.Certamencontext context)
         {
@@ -27,7 +29,7 @@ namespace Proyecto1.Pages.Jugadores
         public async Task OnGetAsync(int? id)
         {
             int cont = 0;
-
+            paiselegido = id.Value;
             equp = con.mostrareqp(id.Value);
             //List<Jugador> juga=con.NumRegistrosJugadores(equp.NomEquipo);
             juga = con.NumRegistrosJugadores(equp.NomEquipo);

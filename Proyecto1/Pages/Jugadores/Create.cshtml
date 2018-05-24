@@ -14,26 +14,26 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Jugador.Nombre" class="control-label"></label>
-                <input asp-for="Jugador.Nombre" class="form-control" />
-                <span asp-validation-for="Jugador.Nombre" class="text-danger"></span>
+                <label asp-for="Jugnom" class="control-label"></label>
+                <input asp-for="Jugnom" class="form-control" />
+                <span asp-validation-for="Jugnom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Jugador.Historia" class="control-label"></label>
-                <input asp-for="Jugador.Historia" class="form-control" />
-                <span asp-validation-for="Jugador.Historia" class="text-danger"></span>
+                <label asp-for="Histor" class="control-label"></label>
+                <input asp-for="Histor" class="form-control" />
+                <span asp-validation-for="Histor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Jugador.Posicion" class="control-label"></label>
-                <input asp-for="Jugador.Posicion" class="form-control" />
-                <span asp-validation-for="Jugador.Posicion" class="text-danger"></span>
+                <label asp-for="Jugpos" class="control-label"></label>
+                <input asp-for="Jugpos" class="form-control" />
+                <span asp-validation-for="Jugpos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Jugador.ImagenJug" class="control-label"></label>
+                <label asp-for="Jugima" class="control-label"></label>
                 @*<input asp-for="Jugador.ImagenJug" class="form-control" />*@
-                <input asp-for="Jugador.ImagenJug" type="file"
+                <input asp-for="Jugima" type="file"
                        accept=".jpg, .jpeg, .png, .svg">
-                <span asp-validation-for="Jugador.ImagenJug" class="text-danger"></span>
+                <span asp-validation-for="Jugima" class="text-danger"></span>
             </div>
             @*<h4>@Jugador.PaisJugador=Equipo.NomEquipo</h4>*@
             <div class="form-group">

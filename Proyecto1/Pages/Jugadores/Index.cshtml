@@ -23,8 +23,8 @@
 
 <h2>Detalles del equipo</h2>
 
-<p>
-    <a asp-page="Create">Agregar Jugador</a>
+<p>        
+    <a href="/Jugadores/Create?id=@Model.paiselegido">Agregar Jugador</a>
 </p>
 <table class="table">
     <thead>
@@ -61,9 +61,9 @@
                 <img class=" img-thumbnail" alt="bandera" width="120" height="80" src="~/images/Jugadores/@item.ImagenJug">
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.JugadorID">Editar</a> |
-                <a asp-page="./Details" asp-route-id="@item.JugadorID">Detalles</a> |
-                <a asp-page="./Delete" asp-route-id="@item.JugadorID">Sacar del equipo</a>
+                <a href="/Jugadores/Edit?id=@item.JugadorID">Editar jugador</a> |                
+                <a href="/Jugadores/Details?id=@item.JugadorID">Biografia del jugador</a> |
+                <a href="/Jugadores/Delete?id=@item.JugadorID">Sacar del equipo</a>
             </td>
         </tr>
 }
