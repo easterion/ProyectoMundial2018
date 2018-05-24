@@ -1,0 +1,40 @@
+﻿@page
+@model Proyecto1.Pages.Equipos.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Equipo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Equipo.EquipoID" />
+            <div class="form-group">
+                <label asp-for="Equipo.NomEquipo" class="control-label"></label>
+                <input asp-for="Equipo.NomEquipo" class="form-control" />
+                <span asp-validation-for="Equipo.NomEquipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Equipo.ImagenBandera" class="control-label"></label>
+                <input asp-for="Equipo.ImagenBandera" class="form-control" />
+                <span asp-validation-for="Equipo.ImagenBandera" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

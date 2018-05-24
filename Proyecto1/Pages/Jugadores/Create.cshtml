@@ -1,0 +1,52 @@
+﻿@page
+@model Proyecto1.Pages.Jugadores.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Jugador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Jugador.Nombre" class="control-label"></label>
+                <input asp-for="Jugador.Nombre" class="form-control" />
+                <span asp-validation-for="Jugador.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jugador.Historia" class="control-label"></label>
+                <input asp-for="Jugador.Historia" class="form-control" />
+                <span asp-validation-for="Jugador.Historia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jugador.Posicion" class="control-label"></label>
+                <input asp-for="Jugador.Posicion" class="form-control" />
+                <span asp-validation-for="Jugador.Posicion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jugador.ImagenJug" class="control-label"></label>
+                @*<input asp-for="Jugador.ImagenJug" class="form-control" />*@
+                <input asp-for="Jugador.ImagenJug" type="file"
+                       accept=".jpg, .jpeg, .png, .svg">
+                <span asp-validation-for="Jugador.ImagenJug" class="text-danger"></span>
+            </div>
+            @*<h4>@Jugador.PaisJugador=Equipo.NomEquipo</h4>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

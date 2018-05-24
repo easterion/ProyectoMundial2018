@@ -1,0 +1,148 @@
+﻿@page
+@model MospaisesModel
+@*    @model Proyecto1.Models*@
+@{
+    ViewData["Title"] = "Mospaises";
+}
+
+<div class="container">
+    <h1 align="center">DATOS DE LOS PAISES PARTICIPANTES</h1>
+
+
+    @{
+        if (1 == 0)
+        {
+            <div class=" container">
+                <h3>sin equipos</h3>
+            </div>
+        }
+        else
+        {
+            <div class=" container">
+                <h3>con equipos</h3>
+            </div>
+
+        }
+    }
+
+    @*
+        if(Model.Equipo.Count()!=0)
+        {
+        @foreach (var pais in Model.Equipo)
+         {
+          <div class=" col-sm-3">
+              <div class=" well">
+                  <p align="center">
+                      <img class=" img-thumbnail" alt="banderabrasil" width="200" height="120" src='~/images/banderasudafrica.svg.png'>
+                      <a href="#">Bandera</a>
+                  </p>
+
+              </div>
+          </div>
+
+        }
+        }
+        else
+        {
+            <div class=" well">
+            <p align="center">no existen paises registrados</p>
+
+        </div>
+        }
+    *@
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderasudafrica.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#">Bandera</a>
+            </p>
+        </div>
+    </div>
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='/images/banderabrasil.jpg' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderaaustralia.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderamexico.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderaindia.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderaespana.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderaalemania.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderaportugal.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderaitalia.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderafrancia.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+
+    <div class=" col-sm-3">
+        <div class=" well">
+            <p align="center">
+                <img src='~/images/banderabelgica.svg.png' class=" img-thumbnail" alt="banderabrasil" width="200" height="120">
+                <a href="#" ;text-align:center>Bandera</a>
+            </p>
+        </div>
+    </div>
+</div>

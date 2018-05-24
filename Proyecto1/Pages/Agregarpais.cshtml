@@ -1,0 +1,140 @@
+﻿@page
+@model Proyecto1.Pages.AgregarpaisModel
+@{
+    ViewData["Title"] = "Agregarpais";
+}
+
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EQUIPOS</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler {
+            display: none;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #0066CC;
+            color: white;
+        }
+
+        td {
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Inverted Navbar Start Here-->
+    <!--<nav> tag  start with classes .navbar and .navbar-inverse -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Proyecto Mundialista 2018</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Index">Home</a></li>                
+            </ul>            
+        </div>
+    </nav>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+
+<div class="container">
+    <body>
+        <h1>EQUIPOS</h1>
+        <div class=" row">
+            <div class="col-lg-6">
+                <h3>Equipos existentes</h3>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Pais participante</th>
+                            <th>Bandera</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (@Model.Exequipos == true)
+                            {
+                                for (int i = 0; i < @Model.equipos.Count(); i++)
+                                {
+                                    <td>@Model.equipos[i].NomEquipo</td>
+                                    @*<td>@Model.equipos[i].NomEquipo</td>
+                                    <td>
+                                       <img src="@Model.Nombbandera" class=" img-thumbnail" alt="bandera" width="120" height="80">
+                                    </td>*@
+                                    <td>
+                                        <img src="~/images/1fondorussia2018.jpg" class=" img-thumbnail" alt="bandera" width="120" height="80">
+                                    </td>
+                                }
+
+                            }
+                            else
+                            {
+                                <td>No existen equipos registrados</td>
+                                <td>
+                                    <img src="~/images/1fondorussia2018.jpg" class=" img-thumbnail" alt="bandera" width="120" height="80">
+                                </td>
+                            }
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class=" col-lg-6">
+                <h3>Agregar nuevo equipo</h3>
+
+                <form method="post" onsubmit="addItem()">
+                    <label for="parametro1">Escriba el nombre del pais</label>
+                    <input type="text" name="parametro1" placeholder="Escribir Pais">
+                    @*<input type="submit" value="Agregar" asp-page-handler="Agpais">
+                    <input type="file" name="imagenBandera" asp-page-handler="Imabander" />*@
+                    <label for="profile_pic">Seleccione la bandera del pais</label>
+                    <input type="file" id="profile_pic" name="imagenBandera"
+                           accept=".jpg, .jpeg, .png, .svg">                    
+                    <div class=" col-lg-6">
+                        <button asp-page-handler="Fotbandera">Aceptar</button>
+                    </div>
+                </form>
+
+
+
+                <div id="spoiler">
+                    <h3>Edit</h3>
+                    <form class="my-form">
+                        <input type="hidden" id="edit-id">
+                        <input type="checkbox" id="edit-isComplete">
+                        <input type="text" id="edit-name">
+                        <input type="submit" value="Edit">
+                        <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+                    </form>
+                </div>
+
+
+                <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                        crossorigin="anonymous"></script>
+                <script src="js/site.js"></script>
+
+            </div>
+
+        </div>
+    </body>
+</div>
+

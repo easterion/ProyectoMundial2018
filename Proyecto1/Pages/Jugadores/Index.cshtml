@@ -1,0 +1,71 @@
+﻿@page
+@model Proyecto1.Pages.Jugadores.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <!--Inverted Navbar Start Here-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Proyecto Mundialista 2018</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Equipos/Index">Volver a Equipos</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+<h2>Detalles del equipo</h2>
+
+<p>
+    <a asp-page="Create">Agregar Jugador</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jugador[0].Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jugador[0].Historia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jugador[0].Posicion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jugador[0].ImagenJug)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.juga) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Historia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posicion)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.ImagenJug)*@
+                <img class=" img-thumbnail" alt="bandera" width="120" height="80" src="~/images/Jugadores/@item.ImagenJug">
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.JugadorID">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.JugadorID">Detalles</a> |
+                <a asp-page="./Delete" asp-route-id="@item.JugadorID">Sacar del equipo</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

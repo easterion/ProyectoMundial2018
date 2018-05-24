@@ -1,0 +1,87 @@
+﻿@page
+@model Proyecto1.Pages.Equipos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <!--Inverted Navbar Start Here-->
+    <!--<nav> tag  start with classes .navbar and .navbar-inverse -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Proyecto Mundialista 2018</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Index">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+<h2>Informacion de los equipos participantes</h2>
+
+
+<p>
+    <a asp-page="Create">Agregar equipo</a>
+</p>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Equipo[0].NomEquipo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Equipo[0].ImagenBandera)
+                </th>
+                <th>Edicion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*
+        @foreach (var item in Model.Equipo)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomEquipo)
+                </td>
+                <td>
+                    <img class=" img-thumbnail" alt="bandera" width="120" height="80" src="~/images/@item.ImagenBandera">
+
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.EquipoID">Editar</a> |
+                    <a asp-page="./Details" asp-route-id="@item.EquipoID">Detalles</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.EquipoID">Retirar el equipo</a> |
+                    <a href="/Jugadores/Index">Ver detalles del equipo</a>
+                </td>
+            </tr>
+        }
+        *@
+
+        @foreach (var item in Model.equp)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomEquipo)
+                </td>
+                <td>
+                    <img class=" img-thumbnail" alt="bandera" width="120" height="80" src="~/images/@item.ImagenBandera">
+
+                </td>
+                <td>
+
+                    <a href="/Equipos/Edit?id=@item.EquipoID">Editar valores del equipo</a> |
+                    <a href="/Equipos/Details?id=@item.EquipoID">Ver equipo</a> |
+                    <a href="/Equipos/Delete?id=@item.EquipoID">Retirar equipo</a> |
+                    <a href="/Jugadores/Index?id=@item.EquipoID">Ver detalles del equipo</a>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

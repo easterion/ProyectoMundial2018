@@ -1,0 +1,91 @@
+﻿@page
+@model Proyecto1.Pages.Equipos.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Agregar</h2>
+
+<h4>Equipo</h4>
+
+@*
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Equipo.NomEquipo" class="control-label">Pais</label>
+                    <input asp-for="Equipo.NomEquipo" class="form-control" />
+                    <span asp-validation-for="Equipo.NomEquipo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Equipo.ImagenBandera" class="control-label">Elija la bandera del pais</label>
+
+                            <input asp-for="Equipo.ImagenBandera" type="file"
+                                   accept=".jpg, .jpeg, .png, .svg">
+                            <span asp-validation-for="Equipo.ImagenBandera" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+*@
+
+@*
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="EquBdd.NomEquipo" class="control-label">Pais</label>
+                    <input asp-for="EquBdd.NomEquipo" class="form-control" />
+                    <span asp-validation-for="EquBdd.NomEquipo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EquBdd.ImagenBandera" class="control-label">Elija la bandera del pais</label>
+
+                    <input asp-for="EquBdd.ImagenBandera" type="file"
+                           accept=".jpg, .jpeg, .png, .svg">
+                    <span asp-validation-for="EquBdd.ImagenBandera" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+*@
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nomequ" class="control-label">Pais</label>
+                <input asp-for="Nomequ" class="form-control" />
+                <span asp-validation-for="Nomequ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eqband" class="control-label">Elija la bandera del pais</label>
+
+                <input asp-for="Eqband" type="file"
+                       accept=".jpg, .jpeg, .png, .svg">
+                <span asp-validation-for="Eqband" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
