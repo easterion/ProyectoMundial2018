@@ -16,37 +16,36 @@
             @Html.DisplayNameFor(model => model.Jugador.Nombre)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Jugador.Nombre)
+            @Html.DisplayFor(model => model.juga.Nombre)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Jugador.Historia)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Jugador.Historia)
+            @Html.DisplayFor(model => model.juga.Historia)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Jugador.Posicion)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Jugador.Posicion)
+            @Html.DisplayFor(model => model.juga.Posicion)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Jugador.Fechainscripcion)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Jugador.Fechainscripcion)
+            @Html.DisplayFor(model => model.juga.Fechainscripcion)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Jugador.ImagenJug)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Jugador.ImagenJug)
+            @Html.DisplayFor(model => model.juga.ImagenJug)
         </dd>
     </dl>
     
     <form method="post">
         <input type="hidden" asp-for="Jugador.JugadorID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-default" />
     </form>
 </div>

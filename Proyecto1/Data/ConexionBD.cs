@@ -65,8 +65,7 @@ namespace Proyecto1.Data
                 salida = "no se pudo insertar: " + ex.ToString();
             }            
         }
-
-        //public string insertarJugador(int id, string nombre, string histo,int posi,string fotjug,string pajug)//****************************************************************************************************************************************
+       
         public string insertarJugador(Jugador jugu)//************************
         {
             int id = jugu.JugadorID;
@@ -292,6 +291,30 @@ namespace Proyecto1.Data
                 Console.WriteLine("no se pudo ejecutar consulta: " + ex.ToString());
             }
             return eqq;
+        }
+
+        public Jugador mostrarjugador(int id)
+        {
+            Jugador juga = new Jugador();
+            cmd = new SqlCommand("Select * from Jugador where JugadorID = '" + id + "'", cn);
+            dr = cmd.ExecuteReader();
+            try { 
+                while(dr.Read())
+                {
+                    juga.JugadorID = Int32.Parse(dr["JugadorID"].ToString());
+                    juga.Nombre = dr["Nombre"].ToString();
+                    juga.Historia = dr["Historia"].ToString();
+                    juga.Posicion = Int32.Parse(dr["posicion"].ToString());
+                    juga.ImagenJug = dr["ImagenJug"].ToString();
+                    juga.PaisJugador = dr["PaisJugador"].ToString();
+                }
+                dr.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("no se pudo ejecutar consulta: " + ex.ToString());
+            }
+            return juga;
         }
 
         public void CargarJug(string equip) // seleccionar un grupo segun equipo y guardar en una tabla
